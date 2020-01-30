@@ -1,0 +1,25 @@
+version: "3.5"
+
+volumes:
+  Code:
+
+services:
+  web:
+    image: jira-releases
+    ports:
+      - "8080:80"
+    links:
+      - php
+    volumes:
+      - Code:/var/www/html
+    environment:
+      - JIRA_USERNAME=
+      - JIRA_API_KEY=
+      - JIRA_URL=
+      - HOST_URL=
+  php:
+    image: php:7-fpm
+    volumes:
+      - Code:/var/www/html
+
+
