@@ -17,6 +17,7 @@ services:
       - JIRA_API_KEY=
       - JIRA_URL=
       - HOST_URL=
+      - GITHUB_ACCESS_TOKEN=
   php:
     image: php:7-fpm
     volumes:

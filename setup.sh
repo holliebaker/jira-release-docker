@@ -1,6 +1,9 @@
 #!/bin/bash
 
-cd /var/www/html/jira-release-manager
+cd /var/www/html/
+git clone https://${GITHUB_ACCESS_TOKEN}@github.com/may-den/jira-release-manager
+
+cd jira-release-manager
 cp .env.example .env
 sed -i -e "s/##USERNAME##/${JIRA_USERNAME}/g" .env
 sed -i -e "s/##API_KEY##/${JIRA_API_KEY}/g" .env

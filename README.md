@@ -4,6 +4,8 @@ Provides a containerised environment for the [Jira Release Manager](https://gith
 
 ## Instructions
 
+1. Generate a [GitHub Access Token](https://github.com/settings/tokens/new) in order to clone the private repo.
+
 1. Copy `docker-compose.yml.example` to `docker-compose.yml` and fill in the relevant information.
 ```yaml
 version: "3.5"
@@ -25,17 +27,18 @@ services:
       - JIRA_API_KEY=<jira-api-key>
       - JIRA_URL=<jira-api-url>
       - HOST_URL=<host-url>
+      - GITHUB_ACCESS_TOKEN=<github-access-token>
   php:
     image: php:7-fpm
     volumes:
       - Code:/var/www/html
 
 ```
-2. Build the `jira-releases` from Dockerfile
+1. Build the `jira-releases` from Dockerfile
 ```bash
 docker build -t jira-releases .
 ```
-3. Do a
+1. Do a
 ```bash
 docker-compose up
 ```
